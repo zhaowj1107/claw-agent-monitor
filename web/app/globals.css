@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode – slate palette */
+    --background:    210 40% 98%;    /* slate-50  */
+    --foreground:    222 47% 11%;    /* slate-900 */
+    --card:          0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover:       0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary:       142 70% 45%;   /* green-500 */
+    --primary-foreground: 0 0% 100%;
+    --secondary:     210 40% 96%;   /* slate-100 */
+    --secondary-foreground: 222 47% 11%;
+    --muted:         210 40% 96%;
+    --muted-foreground: 215 16% 47%; /* slate-500 */
+    --accent:        210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive:   0 84% 60%;     /* red-500 */
+    --destructive-foreground: 0 0% 100%;
+    --border:        214 32% 91%;   /* slate-200 */
+    --input:         214 32% 91%;
+    --ring:          142 70% 45%;
+    --radius:        0.75rem;
+  }
+
+  .dark {
+    /* Dark mode – deep slate + green accent */
+    --background:    229 84% 5%;    /* slate-950 */
+    --foreground:    210 40% 98%;   /* slate-50  */
+    --card:          222 47% 9%;    /* slate-900 slightly deeper */
+    --card-foreground: 210 40% 98%;
+    --popover:       222 47% 9%;
+    --popover-foreground: 210 40% 98%;
+    --primary:       142 70% 45%;
+    --primary-foreground: 229 84% 5%;
+    --secondary:     217 33% 17%;   /* slate-800 */
+    --secondary-foreground: 210 40% 98%;
+    --muted:         217 33% 14%;
+    --muted-foreground: 215 20% 55%; /* slate-400 adjusted */
+    --accent:        217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive:   0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border:        217 33% 15%;   /* very subtle dark border */
+    --input:         217 33% 17%;
+    --ring:          142 70% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.6;
+  }
+}
+
+/* ─── Global background gradient ───────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 10% 0%,   rgba(34, 197, 94, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(59, 130, 246, 0.04) 0%, transparent 60%);
+}
+
+/* ─── Glass card utility ────────────────────────────────── */
+@layer utilities {
+  .glass {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .glass-light {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Tabular numbers for data values */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+  }
+}
