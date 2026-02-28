@@ -2,6 +2,18 @@
 
 A real-time web dashboard for monitoring AI coding agents, cron jobs, system resources, and containers. Connects to a lightweight WebSocket server that aggregates data from OpenClaw, Claude Code, Codex, Gemini CLI, Docker, and more.
 
+## Screenshots
+
+<p align="center">
+  <img src="docs/SC2.png" alt="Dashboard with active Codex sessions" width="780" />
+  <br/><em>Active Codex sessions with card previews</em>
+</p>
+
+<p align="center">
+  <img src="docs/SC1.png" alt="Dashboard overview — Sub-Agent Sessions and System Resources" width="780" />
+  <br/><em>Sub-Agent Sessions and System Resources panels</em>
+</p>
+
 ## Features
 
 ### Session Viewers
